@@ -38,7 +38,7 @@ RAG-приложение для юридических советов на ос�
 
 ```bash
 npx supabase functions deploy rag-chat
-npx supabase functions deploy backfill-embeddings
+npx supabase functions deploy backfill-embeddingsW
 ```
 
 ### 4. Эмбеддинги для дел
