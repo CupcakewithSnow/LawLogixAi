@@ -20,8 +20,9 @@ export default function Login() {
     setError('')
     setLoading(true)
     try {
-      const { error: err } = await supabase.auth.signInWithPassword({ email, password })
+      const { data, error: err } = await supabase.auth.signInWithPassword({ email, password })
       if (err) throw err
+      localStorage.setItem("token", data.session.access_token)
       navigate('/', { replace: true })
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Ошибка входа')

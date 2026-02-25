@@ -1,13 +1,15 @@
 import { createClient } from '@supabase/supabase-js'
 
-const url = import.meta.env.VITE_SUPABASE_URL
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+export const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+export const publishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
+export const githubToken = import.meta.env.GITHUB_MODELS_TOKEN
 
-if (!url || !anonKey) {
+
+if (!supabaseUrl || !publishableKey) {
   throw new Error('Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY')
 }
 
-export const supabase = createClient(url, anonKey)
+export const supabase = createClient(supabaseUrl, publishableKey)
 
 export type Dialog = {
   id: string
